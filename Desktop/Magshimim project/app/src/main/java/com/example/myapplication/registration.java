@@ -1,8 +1,9 @@
 package com.example.myapplication;
 
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.graphics.Color;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,10 +13,11 @@ import android.widget.TextView;
 
 public class registration extends Activity
 {
-
+    String IP = "10.0.0.7";
+    int PORT = 8888;
    public TextView errorText;
-   public EditText password, email,userName;
-    public  Button register;
+   public EditText password, email,userName,firstName,lastName;
+    public  Button register,returnBtn;
 
     public String errorMessagePassword = "Error! The username must contain at least 1 number, one small and one big letters, and at least 8 letters";
 
@@ -25,10 +27,13 @@ public class registration extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registration);
 
+        firstName = (EditText) findViewById(R.id.firstName);
+        lastName = (EditText) findViewById(R.id.lastName);
         userName = (EditText) findViewById(R.id.userName);
         password = (EditText) findViewById(R.id.password);
         email = (EditText) findViewById(R.id.email);
         register = (Button) findViewById(R.id.registerButton);
+        returnBtn  = (Button) findViewById(R.id.returnBtn);
 
         errorText = (TextView) findViewById(R.id.errorText);
 
@@ -36,33 +41,86 @@ public class registration extends Activity
 
     public void onClick(View v)
     {
-        if ((validUsername(userName.getText().toString())) && (validPassword(password.getText().toString())))
+        if(v ==  register)
         {
-            String len1 ="",len2 ="";
-            if(userName.length()<10)
-            {
-                len1+="0"+Integer.toString(userName.length());
-            }
-            else
-            {
-                len1 = Integer.toString(userName.length());
-            }
+            String firstNameString = userName.getText().toString();
+            String lastNameString = userName.getText().toString();
+            String usernameString = userName.getText().toString();
+            String passwordString = password.getText().toString();
+            String emailString = email.getText().toString();
 
-            if(password.length()<10)
-            {
-                len2+="0"+Integer.toString(password.length());
-            }
-            else
-            {
-                len2 = Integer.toString(password.length());
-            }
+            if((!firstNameString.matches("")) && (!lastNameString.matches("")) && (!usernameString.matches("")) &&(!passwordString.matches("")) &&(!emailString.matches(""))) {
+                if ((validUsername(userName.getText().toString())) && (validPassword(password.getText().toString())))
+                {
 
-            String output = "110"+len1+userName+len2+password;
 
+                    String output = "160" + intToString(firstNameString.length())+ firstNameString+ intToString(lastNameString.length())+ lastNameString+ intToString(usernameString.length())+ usernameString+ intToString(passwordString.length())+ passwordString+ intToString(emailString.length())+ emailString;
+                    RequestAndAnswer ticket = new RequestAndAnswer(IP, PORT, output);
+                    ticket.execute();
+                    String response = ticket.getResult();
+                    switch(response.charAt(3))
+                    {
+                        case '0':
+                        {
+                            response = "You have successfuly registered!";
+                            errorText.setTextColor(Color.GREEN);
+                            break;
+                        }
+                        case '1':
+                        {
+                            response = "The username is already taken";
+                            errorText.setTextColor(Color.RED);
+                            break;
+                        }
+                        case '2':
+                        {
+                            response = "The username is already taken";
+                            errorText.setTextColor(Color.RED);
+                            break;
+                        }
+                        case '3':
+                        {
+                            response = "The password is invalid";
+                            errorText.setTextColor(Color.RED);
+                            break;
+                        }
+                        case '4':
+                        {
+                            response = "The username is invalid";
+                            errorText.setTextColor(Color.RED);
+                            break;
+                        }
+
+
+                    }
+
+                    errorText.setText(response);
+
+
+                }
+            }
+        }
+        else
+        {
+            finish();
         }
 
     }
 
+    public String intToString(int num)
+    {
+        String len="";
+        if(userName.length()<10)
+        {
+            len+="0"+Integer.toString(num);
+        }
+        else
+        {
+            len = Integer.toString(num);
+        }
+
+        return  len;
+    }
 
     public boolean validUsername(String userName)
     {
@@ -87,6 +145,7 @@ public class registration extends Activity
                 } else
                 {
                     String error = "Error! Your username must only contain English letters and numbers only!";
+                    errorText.setTextColor(Color.RED);
                     errorText.setText(error);
 
                     return false;
@@ -97,6 +156,7 @@ public class registration extends Activity
         else
         {
             String error = "Error! Your username must contain at least 8 characters!";
+            errorText.setTextColor(Color.RED);
             errorText.setText(error);
             return false;
         }
@@ -129,6 +189,7 @@ public class registration extends Activity
             if((bigCaps ==0) || (smallCaps == 0) || (nums ==0 ))
             {
                 errorText.setText(errorMessagePassword);
+                errorText.setTextColor(Color.RED);
                 return false;
             }
 
@@ -136,6 +197,7 @@ public class registration extends Activity
         else
         {
             String error = "Your password must contain at least 8 characters";
+            errorText.setTextColor(Color.RED);
             errorText.setText(error);
             return false;
         }
