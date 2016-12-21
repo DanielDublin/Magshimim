@@ -35,7 +35,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:password="true"
-        android:textColor="@android:color/black"/>
+        android:textColor="@android:color/black"
+        android:hint="Enter your password" />
 
     <EditText
         android:layout_width="wrap_content"

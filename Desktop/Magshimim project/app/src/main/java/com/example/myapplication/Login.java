@@ -35,7 +35,7 @@ public class Login extends Activity
 
     public void onClick(View v)
     {
-        Client myClient = new Client(IP, PORT, response);
+        //RequestAndAnswer myClient = new RequestAndAnswer(IP, PORT, response);
         myClient.execute();
         String answer = myClient.getResult();
         if(answer.charAt(0) == 'n')

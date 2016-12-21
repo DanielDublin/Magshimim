@@ -16,7 +16,7 @@ public class registration extends Activity
    public TextView errorText;
    public EditText password, email,userName;
     public  Button register;
-    public String errorMessageUsername = "Error! All letters must be in English and contain at least 8 characters";
+
     public String errorMessagePassword = "Error! The username must contain at least 1 number, one small and one big letters, and at least 8 letters";
 
     @Override
@@ -38,7 +38,27 @@ public class registration extends Activity
     {
         if ((validUsername(userName.getText().toString())) && (validPassword(password.getText().toString())))
         {
-        //do somethingk
+            String len1 ="",len2 ="";
+            if(userName.length()<10)
+            {
+                len1+="0"+Integer.toString(userName.length());
+            }
+            else
+            {
+                len1 = Integer.toString(userName.length());
+            }
+
+            if(password.length()<10)
+            {
+                len2+="0"+Integer.toString(password.length());
+            }
+            else
+            {
+                len2 = Integer.toString(password.length());
+            }
+
+            String output = "110"+len1+userName+len2+password;
+
         }
 
     }
