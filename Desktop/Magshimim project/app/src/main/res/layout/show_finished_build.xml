@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="The computer has been built successfully!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView29"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="27dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="#FF0000"
+
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text="Processor - "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="95dp"
+        android:id="@+id/textView9"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/processorTV"
+        android:layout_toStartOf="@+id/processorTV" />
+
+    <TextView
+        android:text="Motherboard - "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView17"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_below="@+id/textView9"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/processorTV"
+        android:layout_toStartOf="@+id/processorTV" />
+
+    <TextView
+        android:text="Cooling - "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView18"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_below="@+id/textView17"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/motherboardTV"
+        android:layout_toStartOf="@+id/motherboardTV" />
+
+    <TextView
+        android:text="RAM - "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView19"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_below="@+id/textView18"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/coolingTV"
+        android:layout_toStartOf="@+id/coolingTV" />
+
+    <TextView
+        android:text="Optical Driver - "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView20"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_below="@+id/textView19"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/ramTV"
+        android:layout_toStartOf="@+id/ramTV" />
+
+    <TextView
+        android:text="Hard Disk - "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView21"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_below="@+id/textView20"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/opticalDriverTV"
+        android:layout_toStartOf="@+id/opticalDriverTV" />
+
+    <TextView
+        android:text="Audio Card - "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView22"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_below="@+id/textView21"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/hardDiskTV"
+        android:layout_toStartOf="@+id/hardDiskTV" />
+
+    <TextView
+        android:text="Graphics Card - "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView23"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_below="@+id/textView22"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="CPU - "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView25"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_below="@+id/textView24"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/powerSupplyTV"
+        android:layout_toStartOf="@+id/powerSupplyTV" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/processorTV"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_alignBaseline="@+id/textView9"
+        android:layout_alignBottom="@+id/textView9"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/motherboardTV"
+        android:layout_alignStart="@+id/motherboardTV" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/motherboardTV"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_alignBaseline="@+id/textView17"
+        android:layout_alignBottom="@+id/textView17"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/textView23"
+        android:layout_toEndOf="@+id/textView23" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/coolingTV"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_below="@+id/textView17"
+        android:layout_alignRight="@+id/motherboardTV"
+        android:layout_alignEnd="@+id/motherboardTV"
+        android:layout_toEndOf="@+id/textView18"
+        android:layout_alignLeft="@+id/motherboardTV"
+        android:layout_alignStart="@+id/motherboardTV" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ramTV"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_below="@+id/coolingTV"
+        android:layout_alignRight="@+id/coolingTV"
+        android:layout_alignEnd="@+id/coolingTV"
+        android:layout_toEndOf="@+id/textView18"
+        android:layout_alignLeft="@+id/coolingTV"
+        android:layout_alignStart="@+id/coolingTV" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/opticalDriverTV"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_alignBaseline="@+id/textView20"
+        android:layout_alignBottom="@+id/textView20"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/ramTV"
+        android:layout_alignStart="@+id/ramTV" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hardDiskTV"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_below="@+id/textView20"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/opticalDriverTV"
+        android:layout_alignStart="@+id/opticalDriverTV" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/audioCardTV"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_below="@+id/hardDiskTV"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/textView23"
+        android:layout_toEndOf="@+id/textView23" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/powerSupplyTV"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_alignBaseline="@+id/textView24"
+        android:layout_alignBottom="@+id/textView24"
+        android:layout_toRightOf="@+id/textView23"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="Back to menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/motherboardTV"
+        android:layout_alignStart="@+id/motherboardTV"
+        android:layout_marginBottom="28dp"
+        android:id="@+id/button2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/graphicsCardTV"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_below="@+id/audioCardTV"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView23"
+        android:layout_toRightOf="@+id/textView23" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cpuTV"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_below="@+id/powerSupplyTV"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/powerSupplyTV"
+        android:layout_alignStart="@+id/powerSupplyTV" />
+
+    <TextView
+        android:text="Power Supply - "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView24"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?android:attr/colorForeground"
+        android:textSize="22sp"
+        android:layout_below="@+id/textView23"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/powerSupplyTV"
+        android:layout_toStartOf="@+id/powerSupplyTV" />
+
+</RelativeLayout>

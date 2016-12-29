@@ -81,7 +81,8 @@
         android:id="@+id/sendButton"
         android:layout_marginTop="157dp"
         android:layout_below="@+id/errorText"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickLogin" />
 
     <Button
         android:text="Register"
@@ -90,7 +91,8 @@
         android:id="@+id/registerButton"
         android:layout_below="@+id/sendButton"
         android:layout_alignLeft="@+id/sendButton"
-        android:layout_alignStart="@+id/sendButton" />
+        android:layout_alignStart="@+id/sendButton"
+        android:onClick="onClickLogin" />
 
 
 </RelativeLayout>

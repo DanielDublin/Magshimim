@@ -4,6 +4,8 @@ package com.example.myapplication;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,8 +18,7 @@ public class Login extends Activity
 {
 
     TextView errorText;
-    String IP = "10.0.0.7";
-    int PORT = 8888;
+
     EditText userName, password;
     Button loginButton, registerButton;
 
@@ -33,10 +34,13 @@ public class Login extends Activity
         registerButton = (Button)findViewById(R.id.registerButton);
 
         errorText = (TextView) findViewById(R.id.errorText);
+        userName.setText("Tod");
+        password.setText("Aa123456");
+
 
     }
 
-    public void onClick(View v)
+    public void onClickLogin(View v)
     {
         if(v == loginButton)
         {
@@ -44,20 +48,37 @@ public class Login extends Activity
             String userNameString =  userName.getText().toString();
             String passwordString = password.getText().toString();
             String output ="100"+ intToString(userNameString.length())+userNameString + intToString(passwordString.length())+passwordString;
-            RequestAndAnswer myClient = new RequestAndAnswer(IP, PORT, output);
-            myClient.execute();
-            String answer = myClient.getResult();
+            RequestAndAnswer myClient = new RequestAndAnswer(output);
 
-            if(answer.charAt(3) == '0')
+            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.HONEYCOMB)
+                myClient.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            else
+                myClient.execute();
+
+            String answer="";
+
+            do {
+                answer = myClient.getResult();
+            }
+            while(answer.matches(""));
+
+
+            if(answer.matches("1100"))
             {
-                Intent i = new Intent(this,MainScreen.class);
+                Intent i = new Intent(this,Computer_choosing_selection_activity.class);
                 i.putExtra("username",userNameString);
                 startActivity(i);
                 finish();
             }
+            else if(answer.matches("1101"))
+                {
+                String error = "The username and password do not match";
+                errorText.setTextColor(Color.RED);
+                errorText.setText(error);
+            }
             else
             {
-                String error = "The username and password do not match";
+                String error = "Could not connect";
                 errorText.setTextColor(Color.RED);
                 errorText.setText(error);
             }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layoutDirection="ltr">
+
+    <TextView
+        android:text='Choose how would you like to procceed:                                                                                Press "Create new computer" in oreder to create your own computer out of parts Press "Browse computers" in order to search for already-built computers.'
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/browseButton"
+        android:layout_alignStart="@+id/browseButton"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="51dp"
+        android:id="@+id/textView8"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="?attr/editTextColor"
+        android:layout_alignRight="@+id/createButton"
+        android:layout_alignEnd="@+id/createButton"
+        android:gravity="center" />
+
+    <Button
+        android:text="Create new computer"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="17dp"
+        android:layout_marginEnd="17dp"
+        android:id="@+id/createButton"
+        android:layout_marginTop="111dp"
+        android:layout_below="@+id/textView8"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="onPrimarySelection"/>
+
+    <Button
+        android:text="Browse computers"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:id="@+id/browseButton"
+        android:layout_alignTop="@+id/createButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

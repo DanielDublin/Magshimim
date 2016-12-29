@@ -57,7 +57,6 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/email"
-        android:password="true"
         android:textColor="@android:color/black"
         android:layout_marginTop="23dp"
         android:layout_below="@+id/password"
@@ -84,7 +83,8 @@
         android:id="@+id/registerButton"
         android:layout_marginTop="39dp"
         android:layout_below="@+id/errorText"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickRegister" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -108,7 +108,8 @@
         android:text="Sign in"
         android:layout_below="@+id/registerButton"
         android:layout_alignLeft="@+id/registerButton"
-        android:layout_alignStart="@+id/registerButton" />
+        android:layout_alignStart="@+id/registerButton"
+        android:onClick="onClickRegister"/>
 
     <EditText
         android:layout_width="wrap_content"

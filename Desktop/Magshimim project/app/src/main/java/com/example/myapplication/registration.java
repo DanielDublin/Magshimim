@@ -3,6 +3,9 @@ package com.example.myapplication;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.Interpolator;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,13 +16,12 @@ import android.widget.TextView;
 
 public class registration extends Activity
 {
-    String IP = "10.0.0.7";
-    int PORT = 8888;
+
    public TextView errorText;
    public EditText password, email,userName,firstName,lastName;
     public  Button register,returnBtn;
 
-    public String errorMessagePassword = "Error! The username must contain at least 1 number, one small and one big letters, and at least 8 letters";
+    public String errorMessagePassword = "Error! The password must contain at least 1 number, one small and one big letters, and at least 8 letters";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,65 +41,85 @@ public class registration extends Activity
 
     }
 
-    public void onClick(View v)
+    public void onClickRegister(View v)
     {
         if(v ==  register)
         {
-            String firstNameString = userName.getText().toString();
-            String lastNameString = userName.getText().toString();
+            String firstNameString = firstName.getText().toString();
+            String lastNameString = lastName.getText().toString();
             String usernameString = userName.getText().toString();
             String passwordString = password.getText().toString();
             String emailString = email.getText().toString();
 
-            if((!firstNameString.matches("")) && (!lastNameString.matches("")) && (!usernameString.matches("")) &&(!passwordString.matches("")) &&(!emailString.matches(""))) {
+            if((!firstNameString.matches("")) && (!lastNameString.matches("")) && (!usernameString.matches("")) &&(!passwordString.matches("")) &&(!emailString.matches("")))
+            {
                 if ((validUsername(userName.getText().toString())) && (validPassword(password.getText().toString())))
                 {
 
 
                     String output = "160" + intToString(firstNameString.length())+ firstNameString+ intToString(lastNameString.length())+ lastNameString+ intToString(usernameString.length())+ usernameString+ intToString(passwordString.length())+ passwordString+ intToString(emailString.length())+ emailString;
-                    RequestAndAnswer ticket = new RequestAndAnswer(IP, PORT, output);
-                    ticket.execute();
-                    String response = ticket.getResult();
-                    switch(response.charAt(3))
-                    {
-                        case '0':
+                    RequestAndAnswer ticket = new RequestAndAnswer(output);
+                    if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.HONEYCOMB)
+                        ticket.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                    else
+                        ticket.execute();
+
+                    String response ="";
+                    do {
+                        response = ticket.getResult();
+                    }
+                    while(response.matches(""));
+
+                        if (response.matches("1700"))
                         {
                             response = "You have successfuly registered!";
                             errorText.setTextColor(Color.GREEN);
-                            break;
+
+                            firstName.setText("");
+                            lastName.setText("");
+                            userName.setText("");
+                            password.setText("");
+                            email.setText("");
+
                         }
-                        case '1':
+                        else if (response.matches("1701"))
+                        {
+                            response = "The email is already taken";
+                            errorText.setTextColor(Color.RED);
+
+                        }
+                        else if (response.matches("1702"))
                         {
                             response = "The username is already taken";
                             errorText.setTextColor(Color.RED);
-                            break;
+
                         }
-                        case '2':
-                        {
-                            response = "The username is already taken";
-                            errorText.setTextColor(Color.RED);
-                            break;
-                        }
-                        case '3':
+                        else if (response.matches("1703"))
                         {
                             response = "The password is invalid";
                             errorText.setTextColor(Color.RED);
-                            break;
+
                         }
-                        case '4':
+                        else if (response.matches("1704"))
                         {
                             response = "The username is invalid";
                             errorText.setTextColor(Color.RED);
-                            break;
+
                         }
 
 
-                    }
+
 
                     errorText.setText(response);
 
 
                 }
+            }
+            else
+            {
+                String error = "You must fill out all the boxes in order to register!";
+                errorText.setTextColor(Color.RED);
+                errorText.setText(error);
             }
         }
         else
@@ -110,7 +132,7 @@ public class registration extends Activity
     public String intToString(int num)
     {
         String len="";
-        if(userName.length()<10)
+        if(num<10)
         {
             len+="0"+Integer.toString(num);
         }
@@ -124,7 +146,7 @@ public class registration extends Activity
 
     public boolean validUsername(String userName)
     {
-        if(userName.length() >= 8)
+        if((userName.length() <= 8) && (userName.length()>0))
         {
             int bigCaps = 0;
             int smallCaps = 0;
@@ -170,6 +192,7 @@ public class registration extends Activity
             int bigCaps =0;
             int smallCaps =0;
             int nums =0;
+            boolean notEnglish = false;
             for(int i=0; i < password.length();i++)
             {
                 if((password.charAt(i) >='A') && (password.charAt(i) <='Z'))
@@ -184,6 +207,8 @@ public class registration extends Activity
                 {
                     nums++;
                 }
+
+
             }
 
             if((bigCaps ==0) || (smallCaps == 0) || (nums ==0 ))
