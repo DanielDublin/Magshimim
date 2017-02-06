@@ -10,7 +10,8 @@ import android.widget.Button;
 public class Computer_choosing_selection_activity extends Activity
 {
 
-    private Button moveToCreationButton,moveToBrowsingButton;
+    private Button moveToCreationButton, moveToBrowsingButton;
+    private Globals g;
 
 
     @Override
@@ -20,7 +21,7 @@ public class Computer_choosing_selection_activity extends Activity
 
         moveToCreationButton = (Button)findViewById(R.id.createButton);
         moveToBrowsingButton = (Button)findViewById(R.id.browseButton);
-
+        g = Globals.getInstance();
 
     }
 
@@ -32,28 +33,8 @@ public class Computer_choosing_selection_activity extends Activity
         {
 
 
-
-            RequestAndAnswer request = new RequestAndAnswer("120");
-            String answer = request.getResult();
-            if(!answer.matches("1301"))
-            {
-                answer  = answer.substring(4);
-
-                for(int i = 0; i < 10;i++)
-                {
-                    int length = amount(answer);
-                    answer = answer.substring(2);
-
-                    for (int j = 0; j < length; j++)
-                    {
-
-
-                    }
-                }
-
-            }
-
             Intent i = new Intent(this,Computer_Creation.class);
+            i.putExtra("username", this.getIntent().getExtras().get("username").toString());
             startActivity(i);
             finish();
 
@@ -64,16 +45,6 @@ public class Computer_choosing_selection_activity extends Activity
         }
 
     }
-
-
-    public int amount(String str)
-    {
-        String length ="";
-        length+=str.charAt(0) + str.charAt(1);
-
-        return Integer.parseInt(length);
-    }
-
 }
 
 

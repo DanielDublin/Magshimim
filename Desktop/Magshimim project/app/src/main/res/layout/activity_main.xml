@@ -8,7 +8,10 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.myapplication.MainActivity">
+    android:layoutDirection="ltr"
+    tools:context="com.example.myapplication.Login"
+    android:background="@android:color/background_light"
+    android:elevation="1dp">
 
 
     <TextView
@@ -25,44 +28,6 @@
         android:textSize="20sp"
         android:textColor="@android:color/black"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/email"
-        android:layout_alignTop="@+id/textView6"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:password="true"
-        android:textColor="@android:color/black"
-        android:hint="Enter your password" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/Username"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:maxLength="10"
-        android:maxLines="1"
-        android:hint="Enter your username"
-        android:textColor="@android:color/black"/>
-
-    <TextView
-        android:text="Username: "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView10"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="20sp"
-        android:textColor="@android:color/black" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,25 +39,65 @@
         android:layout_alignParentStart="true"
         android:textColor="@android:color/holo_red_dark" />
 
-    <Button
-        android:text="Login"
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/sendButton"
-        android:layout_marginTop="157dp"
-        android:layout_below="@+id/errorText"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClickLogin" />
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/email"
+        android:password="true"
+        android:textColor="@android:color/black"
+        android:hint="Enter your password"
+        android:layout_alignTop="@+id/textView6"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="Username: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView10"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:layout_alignBaseline="@+id/Username"
+        android:layout_alignBottom="@+id/Username"
+        android:layout_alignRight="@+id/textView6"
+        android:layout_alignEnd="@+id/textView6" />
 
     <Button
         android:text="Register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/registerButton"
-        android:layout_below="@+id/sendButton"
+        android:onClick="onClickLogin"
+        android:layout_marginBottom="55dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/sendButton"
-        android:layout_alignStart="@+id/sendButton"
-        android:onClick="onClickLogin" />
+        android:layout_alignStart="@+id/sendButton" />
+
+    <Button
+        android:text="Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sendButton"
+        android:onClick="onClickLogin"
+        android:layout_above="@+id/registerButton"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/Username"
+        android:maxLength="10"
+        android:maxLines="1"
+        android:hint="Enter your username"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/sendButton"
+        android:layout_alignStart="@+id/sendButton" />
 
 
 </RelativeLayout>

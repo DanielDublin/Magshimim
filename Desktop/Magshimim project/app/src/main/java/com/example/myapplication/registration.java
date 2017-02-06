@@ -3,7 +3,6 @@ package com.example.myapplication;
 
 import android.app.Activity;
 import android.graphics.Color;
-import android.graphics.Interpolator;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,14 +11,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
 
 
 public class registration extends Activity
 {
-
-   public TextView errorText;
-   public EditText password, email,userName,firstName,lastName;
+    private Matcher matcher;
+    private Pattern pattern;
+    public TextView errorText;
+    public EditText password, email,userName,firstName,lastName;
     public  Button register,returnBtn;
+    private static final String EMAIL_PATTERN =
+            "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                    + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+    private Globals g;
 
     public String errorMessagePassword = "Error! The password must contain at least 1 number, one small and one big letters, and at least 8 letters";
 
@@ -28,6 +36,8 @@ public class registration extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registration);
+
+
 
         firstName = (EditText) findViewById(R.id.firstName);
         lastName = (EditText) findViewById(R.id.lastName);
@@ -38,6 +48,8 @@ public class registration extends Activity
         returnBtn  = (Button) findViewById(R.id.returnBtn);
 
         errorText = (TextView) findViewById(R.id.errorText);
+        pattern = Pattern.compile(EMAIL_PATTERN);
+        g  = Globals.getInstance();
 
     }
 
@@ -51,27 +63,28 @@ public class registration extends Activity
             String passwordString = password.getText().toString();
             String emailString = email.getText().toString();
 
-            if((!firstNameString.matches("")) && (!lastNameString.matches("")) && (!usernameString.matches("")) &&(!passwordString.matches("")) &&(!emailString.matches("")))
-            {
-                if ((validUsername(userName.getText().toString())) && (validPassword(password.getText().toString())))
+            if((!firstNameString.matches("")) && (!lastNameString.matches("")) && (!usernameString.matches("")) &&(!passwordString.matches("")) &&(!emailString.matches(""))) {
+                
+
+                if (validEmail(emailString))
                 {
+                        String output = "160" + intToString(firstNameString.length()) + firstNameString + intToString(lastNameString.length()) + lastNameString + intToString(usernameString.length()) + usernameString + intToString(passwordString.length()) + passwordString + intToString(emailString.length()) + emailString;
+                        g.setOutput(output);
+                        RequestAndAnswer ticket = new RequestAndAnswer();
 
 
-                    String output = "160" + intToString(firstNameString.length())+ firstNameString+ intToString(lastNameString.length())+ lastNameString+ intToString(usernameString.length())+ usernameString+ intToString(passwordString.length())+ passwordString+ intToString(emailString.length())+ emailString;
-                    RequestAndAnswer ticket = new RequestAndAnswer(output);
-                    if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.HONEYCOMB)
-                        ticket.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-                    else
-                        ticket.execute();
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
+                            ticket.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                        else
+                            ticket.execute();
 
-                    String response ="";
-                    do {
-                        response = ticket.getResult();
-                    }
-                    while(response.matches(""));
+                        String response = "";
+                        do {
+                            response = ticket.getResult();
+                        }
+                        while (response.matches(""));
 
-                        if (response.matches("1700"))
-                        {
+                        if (response.matches("1700")) {
                             response = "You have successfuly registered!";
                             errorText.setTextColor(Color.GREEN);
 
@@ -81,38 +94,25 @@ public class registration extends Activity
                             password.setText("");
                             email.setText("");
 
-                        }
-                        else if (response.matches("1701"))
-                        {
+                        } else if (response.matches("1701")) {
                             response = "The email is already taken";
                             errorText.setTextColor(Color.RED);
 
-                        }
-                        else if (response.matches("1702"))
-                        {
+                        } else if (response.matches("1702")) {
                             response = "The username is already taken";
                             errorText.setTextColor(Color.RED);
 
-                        }
-                        else if (response.matches("1703"))
-                        {
+                        } else if (response.matches("1703")) {
                             response = "The password is invalid";
                             errorText.setTextColor(Color.RED);
 
-                        }
-                        else if (response.matches("1704"))
-                        {
+                        } else if (response.matches("1704")) {
                             response = "The username is invalid";
                             errorText.setTextColor(Color.RED);
 
                         }
-
-
-
-
-                    errorText.setText(response);
-
-
+                        errorText.setText(response);
+                    
                 }
             }
             else
@@ -184,6 +184,15 @@ public class registration extends Activity
         }
 
     }
+
+    public boolean validEmail(String email)
+    {
+        matcher = pattern.matcher(email);
+        return matcher.matches();
+
+    }
+
+
 
     public boolean validPassword(String password)
     {
