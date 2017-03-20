@@ -40,5 +40,29 @@
         android:id="@+id/browseButton"
         android:layout_alignTop="@+id/createButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="onPrimarySelection" />
+
+    <Button
+        android:text="View profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="31dp"
+        android:id="@+id/profileButton"
+        android:onClick="onPrimarySelection"
+        android:layout_above="@+id/browseButton"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/addNewComponentBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/createButton"
+        android:layout_alignLeft="@+id/createButton"
+        android:layout_alignRight="@+id/createButton"
+        android:layout_alignStart="@+id/createButton"
+        android:layout_below="@+id/createButton"
+        android:onClick="onPrimarySelection"
+        android:layout_marginTop="31dp"
+        android:text="Insert new component to the system" />
 </RelativeLayout>

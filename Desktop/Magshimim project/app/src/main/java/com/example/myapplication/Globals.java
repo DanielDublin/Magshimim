@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-import android.app.Application;
-
 import java.io.IOException;
 import java.net.Socket;
 
@@ -12,8 +10,10 @@ import java.net.Socket;
 public class Globals
 {
     public String output="";
+    private String status ="", username;
     public Socket socket;
     private static Globals instance;
+
 
 
     public Globals()
@@ -58,6 +58,13 @@ public class Globals
         return this.socket;
     }
 
+    public String getStatus(){return status;}
+
+    public void setStatus(String status){this.status = status;}
+
+    public String getUsername(){return username;}
+
+    public void setUsername(String status){this.username = username;}
 
 
 }

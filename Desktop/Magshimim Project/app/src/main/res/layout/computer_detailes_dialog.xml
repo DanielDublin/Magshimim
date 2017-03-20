@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="365sp"
+    android:layout_width="380sp">
+
+    <TextView
+        android:text="Rating: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:id="@+id/rateTV"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="46dp"
+        android:layout_marginStart="46dp"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/closeBtn"
+        android:id="@+id/lvDialog"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/creatorTV" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:numStars="5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_below="@+id/rateTV"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/closeBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/ratingBar"
+        android:layout_alignEnd="@+id/ratingBar"
+        android:layout_marginRight="11dp"
+        android:layout_marginEnd="11dp" />
+
+    <TextView
+        android:text="        Creator: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/creatorTV"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/computerNameTV"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_height="wrap_content"
+        android:id="@+id/computerNameTV"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/ratingBar"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/profileBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/rateTV"
+        android:layout_alignBottom="@+id/rateTV"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="Check profile" />
+
+</RelativeLayout>

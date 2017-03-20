@@ -100,12 +100,23 @@ public class Login extends Activity implements AlertDialog.OnClickListener
                 while (answer.matches(""));
 
 
-                if (answer.matches("1100")) {  //Match
+                if (answer.matches("1100")) {  //Match as user
                     Intent i = new Intent(this, Computer_choosing_selection_activity.class);
-                    i.putExtra("username", userNameString);
+                    g.setStatus("user");
+                    g.setUsername(userNameString);;
                     startActivity(i);
                     finish();
-                } else if (answer.matches("1101")) {  //No matck
+                }
+                else if (answer.matches("1102")) {  //Match as admin
+
+                    Intent i = new Intent(this, Computer_choosing_selection_activity.class);
+                    g.setStatus("admin");
+                    g.setUsername(userNameString);
+                    startActivity(i);
+                    finish();
+
+                }
+                else if (answer.matches("1101")) {  //No match
                     String error = "The username and password do not match";
                     errorText.setTextColor(Color.RED);
                     errorText.setText(error);

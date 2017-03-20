@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_profile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.myapplication.profile">
+
+    <TextView
+        android:text="Last name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv2"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:layout_alignBaseline="@+id/lastNameET"
+        android:layout_alignBottom="@+id/lastNameET"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/errorMessageTV"
+        android:layout_alignEnd="@+id/errorMessageTV" />
+
+    <TextView
+        android:text="Password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv3"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:layout_alignBaseline="@+id/passwordET"
+        android:layout_alignBottom="@+id/passwordET"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv4"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/lastNameET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="asda"
+        android:textColor="@android:color/black"
+        android:layout_above="@+id/passwordET"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/showComputersBtn"
+        android:layout_alignLeft="@+id/passwordET"
+        android:layout_alignStart="@+id/passwordET" />
+
+    <EditText
+        android:text="asdasd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/passwordET"
+        android:textColor="@android:color/black"
+        android:layout_above="@+id/emailET"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/showComputersBtn"
+        android:layout_alignLeft="@+id/emailET"
+        android:layout_alignStart="@+id/emailET" />
+
+    <EditText
+        android:text="asda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/emailET"
+        android:textColor="@android:color/black"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/errorMessageTV"
+        android:layout_alignStart="@+id/errorMessageTV" />
+
+    <EditText
+        android:text="asdasd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/firstNameET"
+        android:textColor="@android:color/black"
+        android:layout_above="@+id/lastNameET"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/errorMessageTV"
+        android:layout_alignLeft="@+id/lastNameET"
+        android:layout_alignStart="@+id/lastNameET" />
+
+
+
+    <TextView
+        android:text="First name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv1"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:layout_alignBaseline="@+id/firstNameET"
+        android:layout_alignBottom="@+id/firstNameET"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/firstNameET"
+        android:layout_toStartOf="@+id/firstNameET" />
+
+
+
+
+
+    <Button
+        android:text="Show computers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/showComputersBtn"
+        android:onClick="onClickChoicesInProfile"
+        android:layout_above="@+id/settingsBtn"
+        android:layout_alignLeft="@+id/tv4"
+        android:layout_alignStart="@+id/tv4" />
+
+
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/computerInfoBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show info"
+        android:onClick="onClickChoicesInProfile"
+        android:layout_above="@+id/showComputersBtn"
+        android:layout_toRightOf="@+id/textView13"
+        android:layout_toEndOf="@+id/textView13"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp" />
+
+    <Button
+        android:id="@+id/settingsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:alpha="1.0"
+        android:onClick="onClickChoicesInProfile"
+        android:text="Update details" />
+
+    <Button
+
+        android:id="@+id/showProfileBtn"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/settingsBtn"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:onClick="onClickChoicesInProfile"
+        android:text="show profile" />
+
+    <TextView
+        android:id="@+id/errorMessageTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/computerInfoBtn"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="12dp"
+        android:text=" " />
+
+    <EditText
+        android:id="@+id/usernameET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textColor="@android:color/black"
+        android:layout_above="@+id/firstNameET"
+        android:layout_toEndOf="@+id/settingsBtn"
+        android:layout_alignLeft="@+id/firstNameET"
+        android:layout_alignStart="@+id/firstNameET" />
+
+    <TextView
+        android:id="@+id/tv5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:text="Username"
+        android:textSize="15sp"
+        android:layout_alignBaseline="@+id/usernameET"
+        android:layout_alignBottom="@+id/usernameET"
+        android:layout_alignLeft="@+id/textView13"
+        android:layout_alignStart="@+id/textView13"
+        android:layout_toLeftOf="@+id/usernameET"
+        android:layout_toStartOf="@+id/usernameET" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" "
+        android:layout_below="@+id/showComputersBtn"
+        android:layout_toLeftOf="@+id/showComputersBtn"
+        android:layout_toStartOf="@+id/showComputersBtn" />
+
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/computerInfoBtn"
+        android:layout_alignTop="@+id/usernameET"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/editBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="edit computer"
+        android:layout_below="@+id/lv"
+        android:layout_alignLeft="@+id/showProfileBtn"
+        android:layout_alignStart="@+id/showProfileBtn"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp" />
+
+
+</RelativeLayout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:text="Back to main menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="35dp"
+        android:id="@+id/returnBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickAtFilters" />
+
+    <Button
+        android:text="Select computer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/choose_btn"
+        android:layout_above="@+id/returnBtn"
+        android:layout_centerHorizontal="true"
+        android:onClick = "onClickAtFilters"/>
+
+    <TextView
+        android:text="Search for computer builds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:id="@+id/tv_Title"
+        android:textSize="30sp"
+        android:gravity="left|center_vertical"
+        android:textColor="@android:color/black"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/filterComputersET"
+        android:layout_below="@+id/tv_Title"
+        android:layout_alignLeft="@+id/tv_Title"
+        android:layout_alignStart="@+id/tv_Title"
+        android:layout_marginTop="27dp"
+        android:hint="Type keywords here..."
+        android:lines="1" />
+
+    <Button
+        android:text="Sort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/filterComputersET"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/filter_btn"
+        android:onClick = "onClickAtFilters"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/filter_btn"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/choose_btn"
+        android:id="@+id/lv" />
+
+    <ImageView
+        android:id="@+id/searchImageryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/filterComputersET"
+        android:layout_toEndOf="@+id/filterComputersET"
+        android:layout_toRightOf="@+id/filterComputersET"
+        android:onClick="onClickAtFilters"
+        android:soundEffectsEnabled="false"
+        android:clickable="true"
+        android:src="@android:drawable/ic_search_category_default" />
+
+</RelativeLayout>

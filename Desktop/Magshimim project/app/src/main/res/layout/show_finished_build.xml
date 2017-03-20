@@ -6,6 +6,19 @@
     android:id="@+id/rlFinished">
 
     <TextView
+        android:text="*Saving is permenant!!!*"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView11"
+        android:textStyle="normal|bold"
+        android:gravity="center"
+        android:textColor="#FF0000"
+        android:textSize="18sp"
+        android:layout_above="@+id/cancleBtn"
+        android:layout_alignLeft="@+id/saveAndFinish"
+        android:layout_alignStart="@+id/saveAndFinish" />
+
+    <TextView
         android:text="The computer has been built successfully!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,17 +32,56 @@
         android:textAppearance="@android:style/TextAppearance.Material.Large"
         android:gravity="center"
         android:textSize="24sp"
-        android:textColor="#FF0000"
+        android:textColor="#000000"
 
         android:textStyle="normal|bold" />
 
     <Button
-        android:text="Back to menu"
+        android:text="save computer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="86dp"
-        android:id="@+id/button2"
+        android:layout_marginBottom="101dp"
+        android:id="@+id/saveAndFinish"
+        android:layout_marginRight="26dp"
+        android:layout_marginEnd="26dp"
+        android:onClick="onClickFinishedShowing"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text=" cancle building"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancleBtn"
+        android:onClick="onClickFinishedShowing"
+        android:layout_marginBottom="13dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Save and exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/saveAndFinish"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="41dp"
+        android:layout_marginStart="41dp"
+        android:id="@+id/saveAndExitBtn" />
+
+    <TextView
+        android:text="*Saving the build is editable*"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView9"
+        android:textStyle="normal|bold"
+        android:gravity="center"
+        android:textColor="#FF0000"
+        android:textSize="18sp"
+        android:layout_below="@+id/saveAndExitBtn"
+        android:layout_toStartOf="@+id/textView11"
+        android:layout_alignRight="@+id/saveAndExitBtn"
+        android:layout_alignEnd="@+id/saveAndExitBtn" />
 
 </RelativeLayout>
